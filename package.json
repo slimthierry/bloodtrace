@@ -1,0 +1,22 @@
+{
+  "name": "bloodtrace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BloodTrace - Module SIH de gestion et tracabilite des dons de sang",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "dev:web": "turbo run dev --filter=@bloodtrace/web",
+    "build:web": "turbo run build --filter=@bloodtrace/web",
+    "dev:backend": "cd backend && uvicorn app.main:app --reload --port 9400",
+    "test:backend": "cd backend && pytest",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

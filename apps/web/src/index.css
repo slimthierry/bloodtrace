@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand palette - Red */
+    --color-brand-50: #FEF2F2;
+    --color-brand-100: #FEE2E2;
+    --color-brand-200: #FECACA;
+    --color-brand-300: #FCA5A5;
+    --color-brand-400: #F87171;
+    --color-brand-500: #DC2626;
+    --color-brand-600: #B91C1C;
+    --color-brand-700: #991B1B;
+    --color-brand-800: #7F1D1D;
+    --color-brand-900: #671D1D;
+    --color-brand-950: #450A0A;
+
+    /* Semantic colors - Light mode */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9fafb;
+    --color-bg-tertiary: #f3f4f6;
+    --color-bg-accent: var(--color-brand-50);
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-text-accent: var(--color-brand-600);
+    --color-border-primary: #e5e7eb;
+    --color-border-accent: var(--color-brand-200);
+
+    /* Blood type badge colors */
+    --color-blood-a: #DC2626;
+    --color-blood-b: #2563EB;
+    --color-blood-ab: #7C3AED;
+    --color-blood-o: #059669;
+
+    /* Status colors */
+    --color-status-available: #059669;
+    --color-status-reserved: #D97706;
+    --color-status-expired: #DC2626;
+    --color-status-quarantine: #7C3AED;
+
+    /* Urgency colors */
+    --color-urgency-routine: #6B7280;
+    --color-urgency-urgent: #D97706;
+    --color-urgency-emergency: #DC2626;
+    --color-urgency-massive: #7F1D1D;
+  }
+
+  .dark {
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-bg-tertiary: #334155;
+    --color-bg-accent: var(--color-brand-950);
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #94a3b8;
+    --color-text-accent: var(--color-brand-400);
+    --color-border-primary: #334155;
+    --color-border-accent: var(--color-brand-800);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2
+           bg-brand-500 text-white font-medium
+           hover:bg-brand-600 active:bg-brand-700
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2
+           bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium
+           hover:bg-gray-200 dark:hover:bg-gray-700
+           focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2
+           bg-red-600 text-white font-medium
+           hover:bg-red-700 active:bg-red-800
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150;
+  }
+
+  .card {
+    @apply rounded-xl border border-gray-200 dark:border-gray-800
+           bg-white dark:bg-gray-900
+           shadow-sm;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-gray-300 dark:border-gray-700
+           bg-white dark:bg-gray-800
+           px-3 py-2 text-sm
+           text-gray-900 dark:text-gray-100
+           placeholder-gray-400 dark:placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500
+           transition-colors duration-150;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-blood-a {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-blood-b {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .badge-blood-ab {
+    @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400;
+  }
+
+  .badge-blood-o {
+    @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400;
+  }
+
+  .badge-status-available {
+    @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400;
+  }
+
+  .badge-status-reserved {
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400;
+  }
+
+  .badge-status-expired {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-status-quarantine {
+    @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400;
+  }
+
+  .badge-urgency-routine {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400;
+  }
+
+  .badge-urgency-urgent {
+    @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400;
+  }
+
+  .badge-urgency-emergency {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-urgency-massive {
+    @apply bg-red-200 text-red-900 dark:bg-red-900/50 dark:text-red-300;
+  }
+}
