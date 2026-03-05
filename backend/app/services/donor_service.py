@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.donor_models import Donor
 from app.schemas.donor_schemas import DonorCreate, DonorUpdate, DonorResponse, DonorListResponse
-from app.core.exceptions import DonorNotFoundException
+from app.auth.exceptions import DonorNotFoundException
 
 
 async def get_donor(db: AsyncSession, donor_id: int) -> Donor:

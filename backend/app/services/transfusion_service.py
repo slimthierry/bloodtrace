@@ -22,7 +22,7 @@ from app.schemas.transfusion_schemas import (
     TransfusionResponse,
     TraceabilityChain,
 )
-from app.core.exceptions import (
+from app.auth.exceptions import (
     TransfusionRequestNotFoundException,
     BloodBagNotFoundException,
 )

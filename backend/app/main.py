@@ -8,10 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.settings import settings
 from app.config.database import engine, Base
 from app.middleware.audit_middleware import AuditMiddleware
-from app.api.v1 import auth, donors, donations, inventory, transfusions, dashboard, audit
-from app.api.fhir import patient, specimen, service_request
-
-
+from app.loggers import setup_logging
+from app.routes import app_router
+from app.libs.fhir import patient, specimen, service_request
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan: startup and shutdown."""
@@ -19,8 +18,6 @@ async def lifespan(app: FastAPI):
         await conn.run_sync(Base.metadata.create_all)
     yield
     await engine.dispose()
-
-
 app = FastAPI(
     title="BloodTrace",
     description="Module SIH de gestion et tracabilite des dons de sang",
@@ -56,8 +53,6 @@ app.include_router(audit.router, prefix="/api/v1/audit", tags=["Audit"])
 app.include_router(patient.router, prefix="/api/fhir", tags=["FHIR - Patient"])
 app.include_router(specimen.router, prefix="/api/fhir", tags=["FHIR - Specimen"])
 app.include_router(service_request.router, prefix="/api/fhir", tags=["FHIR - ServiceRequest"])
-
-
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint for SIH integration monitoring."""

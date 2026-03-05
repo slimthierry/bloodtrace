@@ -16,7 +16,7 @@ from app.schemas.blood_bag_schemas import (
     StockLevel,
     StockSummary,
 )
-from app.core.exceptions import BloodBagNotFoundException
+from app.auth.exceptions import BloodBagNotFoundException
 
 # All 8 blood groups
 BLOOD_GROUPS = [

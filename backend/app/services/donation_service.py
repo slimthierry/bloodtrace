@@ -14,7 +14,7 @@ from app.schemas.donation_schemas import (
     DonationResponse,
     DonationListResponse,
 )
-from app.core.exceptions import DonorNotFoundException, DonorIneligibleException
+from app.auth.exceptions import DonorNotFoundException, DonorIneligibleException
 
 
 async def get_donation(db: AsyncSession, donation_id: int) -> Donation:

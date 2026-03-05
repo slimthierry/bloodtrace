@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.security import verify_password, get_password_hash, create_access_token
+from app.auth.security import verify_password, get_password_hash, create_access_token
 from app.models.user_models import User
 from app.schemas.auth_schemas import LoginRequest, TokenResponse
 from app.schemas.user_schemas import UserCreate

@@ -8,7 +8,7 @@ from starlette.requests import Request
 from starlette.responses import Response
 
 from app.config.database import AsyncSessionLocal
-from app.core.security import decode_access_token
+from app.auth.security import decode_access_token
 from app.models.audit_models import AuditLog
 
 

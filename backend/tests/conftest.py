@@ -12,7 +12,7 @@ from app.main import app
 from app.config.database import get_db
 from app.models.base import Base
 from app.models.user_models import User, UserRole
-from app.core.security import get_password_hash, create_access_token
+from app.auth.security import get_password_hash, create_access_token
 
 # Use SQLite for tests
 TEST_DATABASE_URL = "sqlite+aiosqlite:///./test_bloodtrace.db"
