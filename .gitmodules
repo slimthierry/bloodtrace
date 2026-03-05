@@ -1,0 +1,3 @@
+[submodule "packages/project-style"]
+	path = packages/project-style
+	url = git@github.com:slimthierry/project-style.git
