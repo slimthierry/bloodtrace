@@ -54,6 +54,19 @@ services:
     volumes:
       - ./backend:/app
 
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bloodtrace-web
+    restart: unless-stopped
+    ports:
+      - "3700:3700"
+    environment:
+      VITE_API_URL: http://localhost:9400
+    depends_on:
+      - backend
+
 volumes:
   postgres_data:
   redis_data:
